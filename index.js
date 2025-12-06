@@ -1,18 +1,18 @@
 /**
- * LinkedIn Skill Endorser - Robust Human-Like Version (v3.5 Final)
+ * LinkedIn Skill Endorser - Robust Human-Like Version (v3.7)
  * 
- * enhanced features:
- * - Async/Await for proper sequential execution
- * - Random delays & scrolling
- * - Floating UI Status Box
+ * features:
+ * - Async/Await & Random Delays
  * - Smart Scroll Search
- * - Clean cleanup (Self-destructs after completion)
+ * - Status UI (Clean cleanup)
+ * - Stubborn Button Retry (Try 3x before skipping)
  */
 (async function () {
     // --- Configuration ---
     const MIN_DELAY = 800;
     const MAX_DELAY = 2200;
     const MAX_NO_BUTTONS_ATTEMPTS = 3;
+    const MAX_RETRIES_PER_BUTTON = 3; // New config
     const REPO_ISSUES_URL = "https://github.com/ExceptedPrism3/LinkedIn-Skill-Endorser/issues";
 
     // --- DOM Helpers ---
@@ -28,11 +28,11 @@
         });
 
         box.innerHTML = `
-    <div id="li-status-text" style="margin-bottom: 8px; font-weight: 600;">🚀 Endorser Starting...</div>
-        <div style="font-size: 11px; opacity: 0.7; border-top: 1px solid #444; padding-top: 6px;">
-            Found a bug? <a href="${REPO_ISSUES_URL}" target="_blank" style="color: #4da6ff; text-decoration: none;">Report it here</a>
-        </div>
-`;
+            <div id="li-status-text" style="margin-bottom: 8px; font-weight: 600;">🚀 Endorser Starting...</div>
+            <div style="font-size: 11px; opacity: 0.7; border-top: 1px solid #444; padding-top: 6px;">
+                Found a bug? <a href="${REPO_ISSUES_URL}" target="_blank" style="color: #4da6ff; text-decoration: none;">Report it here</a>
+            </div>
+        `;
 
         document.body.appendChild(box);
         return box;
@@ -54,10 +54,15 @@
     // --- Logic ---
 
     function getAllEndorseButtons() {
-        // Helper to find all current buttons to get a total count
+        // Find buttons that say "Endorse", excluding ones we tried too many times
         const allButtons = Array.from(document.querySelectorAll('button, .artdeco-button'));
         return allButtons.filter(button => {
             if (button.offsetParent === null) return false;
+
+            // Check retry limit
+            const attempts = parseInt(button.dataset.liAttempts || 0);
+            if (attempts >= MAX_RETRIES_PER_BUTTON) return false;
+
             const text = button.innerText || "";
             const ariaLabel = button.getAttribute('aria-label') || "";
             return text.trim() === 'Endorse' || ariaLabel.startsWith('Endorse ');
@@ -65,24 +70,22 @@
     }
 
     function isAtBottom() {
-        return (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50; // 50px buffer
+        return (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50;
     }
 
     // --- Main Execution ---
     createStatusBox();
 
-    // Initial counting (approximate, since some might be hidden)
-    const initialButtons = getAllEndorseButtons();
-    let totalSkillsEstimate = initialButtons.length || "Many";
-
-    updateStatus(`Found ${initialButtons.length} + skills`, "Starting sequence...");
+    // Initial counting
+    let initialButtons = getAllEndorseButtons();
+    updateStatus(`Found ${initialButtons.length}+ skills`, "Starting sequence...");
     await wait(1500);
 
     let endorsedCount = 0;
     let noButtonAttempts = 0;
 
     while (true) {
-        // Re-find to get the next valid button
+        // Re-find 
         const currentButtons = getAllEndorseButtons();
         const btn = currentButtons[0]; // grab the first available one
 
@@ -90,7 +93,7 @@
             // No buttons visible? Let's verify if we can scroll down to find more.
             if (isAtBottom()) {
                 noButtonAttempts++;
-                updateStatus("Reaching end...", `Checking for missed items(${noButtonAttempts} / ${MAX_NO_BUTTONS_ATTEMPTS})`);
+                updateStatus("Reaching end...", `Checking for missed items (${noButtonAttempts}/${MAX_NO_BUTTONS_ATTEMPTS})`);
             } else {
                 // Not at bottom yet, scroll down looking for more
                 noButtonAttempts = 0; // Reset attempts since we found "more page" to explore
@@ -112,7 +115,12 @@
 
         try {
             endorsedCount++;
-            updateStatus(`<strong>⚡ Endorsing...</strong>`, `Skill #${endorsedCount} processed`);
+
+            // Increment local attempt counter on element
+            const attempts = parseInt(btn.dataset.liAttempts || 0);
+            const isRetry = attempts > 0;
+
+            updateStatus(`<strong>⚡ Endorsing...</strong>`, `Skill #${endorsedCount} ${isRetry ? `(Retry ${attempts + 1})` : ""}`);
 
             btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
@@ -120,8 +128,15 @@
             await wait(thinkTime);
 
             if (btn.isConnected) {
+                // Track update
+                btn.dataset.liAttempts = attempts + 1;
+
                 btn.click();
-                console.log(`[#${endorsedCount}]Endorsed`);
+                console.log(`[#${endorsedCount}] Clicked ${isRetry ? `(Retry ${attempts + 1})` : ""}`);
+
+                // Double verification: Sometimes click needs focus
+                if (document.activeElement !== btn) btn.focus();
+
             } else {
                 console.warn("Element stale, retrying...");
                 endorsedCount--;
