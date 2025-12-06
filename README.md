@@ -40,3 +40,6 @@ This script is for educational purposes only. Use it responsibly. LinkedIn's Ter
 ## License
 
 [MIT](LICENSE)
+
+---
+Made with ❤️ by [Prism3](https://github.com/ExceptedPrism3)
