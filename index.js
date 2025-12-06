@@ -1,5 +1,5 @@
 /**
- * LinkedIn Skill Endorser - Robust Human-Like Version (v3.7)
+ * LinkedIn Skill Endorser - Robust Human-Like Version (v1.0)
  * 
  * features:
  * - Async/Await & Random Delays
@@ -12,7 +12,7 @@
     const MIN_DELAY = 800;
     const MAX_DELAY = 2200;
     const MAX_NO_BUTTONS_ATTEMPTS = 3;
-    const MAX_RETRIES_PER_BUTTON = 3; // New config
+    const MAX_RETRIES_PER_BUTTON = 3;
     const REPO_ISSUES_URL = "https://github.com/ExceptedPrism3/LinkedIn-Skill-Endorser/issues";
 
     // --- DOM Helpers ---
@@ -51,10 +51,10 @@
     const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
     const randomDelay = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
-    // --- Logic ---
+    // --- Logic d nami---
 
     function getAllEndorseButtons() {
-        // Find buttons that say "Endorse", excluding ones we tried too many times
+        // Find buttons that say "Endorse"  excluding ones we tried to many times
         const allButtons = Array.from(document.querySelectorAll('button, .artdeco-button'));
         return allButtons.filter(button => {
             if (button.offsetParent === null) return false;
@@ -85,7 +85,7 @@
     let noButtonAttempts = 0;
 
     while (true) {
-        // Re-find 
+        // Re find 
         const currentButtons = getAllEndorseButtons();
         const btn = currentButtons[0]; // grab the first available one
 
@@ -163,6 +163,6 @@
                 if (box) box.remove();
             }, 1000);
         }
-    }, 4000); // Wait 4s so they can see "Done", then fade.
+    }, 4000); // Wait 4s so they can see "Done" then DIE!
 
 })();

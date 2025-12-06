@@ -13,7 +13,7 @@ A robust, "human-like" JavaScript tool to automate endorsing skills on LinkedIn.
 
 *See the script in action: Auto-scrolling, finding skills, and efficient processing.*
 
-## Features
+## ✨ Features
 
 - **🛡️ Bot-Safe Delays**: Uses randomized human-like intervals between clicks (800ms - 2.5s) to avoid rate limiting.
 - **👀 Visual Status Box**: Adds a floating overlay to the bottom-right of your screen so you can track progress without keeping the console open.
@@ -47,7 +47,7 @@ Contributions are welcome! If you have ideas for improvements or new features, f
 
 This script is for educational purposes only. Use it responsibly. LinkedIn's Terms of Service prohibit automated scraping or interaction. The author is not responsible for any consequences resulting from the use of this tool.
 
-## License
+## 📜 License
 
 [MIT](LICENSE)
 
