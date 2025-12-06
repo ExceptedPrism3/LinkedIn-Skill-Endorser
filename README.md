@@ -9,7 +9,7 @@ A robust, "human-like" JavaScript tool to automate endorsing skills on LinkedIn.
 
 ## 🎥 Demo
 
-[**▶️ Watch the Demo Video**](preview/screen_recording.mov)
+[**▶️ Watch the Demo Video**](preview/demo.mp4)
 
 *See the script in action: Auto-scrolling, finding skills, and efficient processing.*
 
