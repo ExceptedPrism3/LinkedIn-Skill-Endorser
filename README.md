@@ -22,7 +22,7 @@ A robust, "human-like" JavaScript tool to automate endorsing skills on LinkedIn.
 - **🧹 Auto-Cleanup**: The status box automatically fades out and removes itself from the page after completion.
 - **🔄 Smart Re-Query**: Automatically handles LinkedIn's dynamic DOM updates (stale element references) by finding the next button freshly each time.
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! If you have ideas for improvements or new features, feel free to fork the repository and submit a pull request.
 
@@ -32,7 +32,7 @@ Contributions are welcome! If you have ideas for improvements or new features, f
 4.  Push to the Branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
-## Disclaimer
+## ⚙️ How to Use
 
 1.  Open **LinkedIn** and navigate to the **Skills** section of a connection's profile.
     *   *Tip: Click "Show all skills" to view the full list first.*
@@ -43,7 +43,7 @@ Contributions are welcome! If you have ideas for improvements or new features, f
 4.  Press **Enter**.
 5.  Sit back! A box will appear in the bottom-right corner showing you the endorsement progress.
 
-## Disclaimer
+## ⚠️ Disclaimer
 
 This script is for educational purposes only. Use it responsibly. LinkedIn's Terms of Service prohibit automated scraping or interaction. The author is not responsible for any consequences resulting from the use of this tool.
 
