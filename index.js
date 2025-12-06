@@ -51,7 +51,7 @@
     const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
     const randomDelay = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
-    // --- Logic d nami---
+    // --- Logic d nami ---
 
     function getAllEndorseButtons() {
         // Find buttons that say "Endorse"  excluding ones we tried to many times
@@ -158,7 +158,7 @@
             // 1. Start fade out
             box.style.opacity = '0';
 
-            // 2. Remove from DOM after fade completes (1s transition)
+            // 2. Remove from DOM after fade completes (1s transition etc... )
             setTimeout(() => {
                 if (box) box.remove();
             }, 1000);
