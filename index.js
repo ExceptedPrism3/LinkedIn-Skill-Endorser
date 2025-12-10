@@ -147,10 +147,11 @@
         noButtonAttempts = 0; // Reset
 
         try {
-            endorsedCount++;
-
+            // Check retry status first
             const attempts = parseInt(btn.dataset.liAttempts || 0);
             const isRetry = attempts > 0;
+
+            if (!isRetry) endorsedCount++;
 
             updateStatus(`<strong>⚡ Endorsing<span class="li-dots"></span></strong>`, `Skill #${endorsedCount} ${isRetry ? `(Retry ${attempts + 1})` : ""}`);
 
@@ -166,7 +167,7 @@
                 if (document.activeElement !== btn) btn.focus();
             } else {
                 console.warn("Element stale, retrying...");
-                endorsedCount--;
+                if (!isRetry) endorsedCount--;
             }
 
             await wait(randomDelay(1000, 1500));
