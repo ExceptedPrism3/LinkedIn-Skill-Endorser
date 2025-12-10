@@ -1,11 +1,11 @@
 {
-  "name": "linkedin-skill-endorser",
-  "version": "3.9.0",
-  "description": "A robust, human-like JavaScript tool to automate endorsing skills on LinkedIn.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ExceptedPrism3/LinkedIn-Skill-Endorser.git"
-  },
-  "author": "Prism3",
-  "license": "MIT"
+    "name": "linkedin-skill-endorser",
+    "version": "3.9.0",
+    "description": "A robust, human-like JavaScript tool to automate endorsing skills on LinkedIn.",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ExceptedPrism3/LinkedIn-Skill-Endorser.git"
+    },
+    "author": "Prism3",
+    "license": "MIT"
 }
