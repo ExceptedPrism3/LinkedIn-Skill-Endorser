@@ -22,16 +22,6 @@ A robust, "human-like" JavaScript tool to automate endorsing skills on LinkedIn.
 - **🧹 Auto-Cleanup**: The status box automatically fades out and removes itself from the page after completion.
 - **🔄 Smart Re-Query**: Automatically handles LinkedIn's dynamic DOM updates (stale element references) by finding the next button freshly each time.
 
-## 🤝 Contributing
-
-Contributions are welcome! If you have ideas for improvements or new features, feel free to fork the repository and submit a pull request.
-
-1.  Fork the Project
-2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the Branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
-
 ## ⚙️ How to Use
 
 1.  Open **LinkedIn** and navigate to the **Skills** section of a connection's profile.
@@ -44,6 +34,16 @@ Contributions are welcome! If you have ideas for improvements or new features, f
 5.  Sit back! A box will appear in the bottom-right corner showing you the endorsement progress.
 6.  *Important*: After the script finishes, perform a **Hard Refresh** (`Cmd+Shift+R` or `Ctrl+F5`) to verify that endorsements were saved. If some are missing, simply re-run the script.
 
+## 🤝 Contributing
+
+Contributions are welcome! If you have ideas for improvements or new features, feel free to fork the repository and submit a pull request.
+
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
+
 ## ⚠️ Disclaimer
 
 This script is for educational purposes only. Use it responsibly. LinkedIn's Terms of Service prohibit automated scraping or interaction.
@@ -52,7 +52,7 @@ This script is for educational purposes only. Use it responsibly. LinkedIn's Ter
 
 ## 📜 License
 
-[MIT](LICENSE)
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ---
 Made with ❤️ by [Prism3](https://github.com/ExceptedPrism3)
