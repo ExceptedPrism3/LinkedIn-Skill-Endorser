@@ -42,10 +42,13 @@ Contributions are welcome! If you have ideas for improvements or new features, f
 3.  Copy the code from `index.js` and paste it into the console.
 4.  Press **Enter**.
 5.  Sit back! A box will appear in the bottom-right corner showing you the endorsement progress.
+6.  *Important*: After the script finishes, perform a **Hard Refresh** (`Cmd+Shift+R` or `Ctrl+F5`) to verify that endorsements were saved. If some are missing, simply re-run the script.
 
 ## ⚠️ Disclaimer
 
-This script is for educational purposes only. Use it responsibly. LinkedIn's Terms of Service prohibit automated scraping or interaction. The author is not responsible for any consequences resulting from the use of this tool.
+This script is for educational purposes only. Use it responsibly. LinkedIn's Terms of Service prohibit automated scraping or interaction.
+
+**The author is not responsible for any consequences resulting from the use of this tool, including but not limited to account bans, restrictions, or temporary suspensions.** Use at your own risk.
 
 ## 📜 License
 
